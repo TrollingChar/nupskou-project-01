@@ -1,1 +1,5 @@
-public enum Difficulty { Easy, Normal, Hard, Trolling }
+namespace Code {
+
+    public enum Difficulty { Easy, Normal, Hard, Trolling }
+
+}
