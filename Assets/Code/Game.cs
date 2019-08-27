@@ -9,7 +9,7 @@ namespace Code {
         [SerializeField] private TMP_Text timeText;
     
 
-        private int t = 0;
+        private int t;
 
 
         public int Time {
