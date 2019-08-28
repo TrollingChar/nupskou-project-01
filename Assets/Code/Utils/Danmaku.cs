@@ -1,4 +1,4 @@
-namespace Code {
+namespace Code.Util {
 
     public static class Danmaku {
 

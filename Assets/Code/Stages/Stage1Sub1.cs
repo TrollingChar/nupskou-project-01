@@ -1,4 +1,5 @@
 using UnityEngine;
+using static Code.Utils.Utils;
 
 
 namespace Code.Stages {
@@ -14,7 +15,12 @@ namespace Code.Stages {
 
         protected override void OnUpdate () {
             Debug.Log (Age);
-            if (Age == 10) Despawn ();
+            if (Age == Time (20, 00)) {
+                Despawn ();
+                // здесь достать из очереди стейджей новый стейдж и заспавнить
+                // если там пусто вернуться в главное меню
+                // даже не нужно лазить в OnDespawn
+            }
         }
 
     }
