@@ -17,9 +17,7 @@ namespace Code.Stages {
             Debug.Log (Age);
             if (Age == Time (20, 00)) {
                 Despawn ();
-                // здесь достать из очереди стейджей новый стейдж и заспавнить
-                // если там пусто вернуться в главное меню
-                // даже не нужно лазить в OnDespawn
+                _.Game.StartNextStage ();
             }
         }
 

@@ -29,17 +29,24 @@ namespace Code {
         private void Awake () {
             UpdateSystem = new UpdateSystem ();
             _.Game = this;
-            new Stage1Sub1 ().Spawn ();
+            StartNextStage ();
             t = -1;
         }
 
 
         private void Update () {
             Time++;
-            
             UpdateSystem.Update ();
-            
-            // RenderingSystems.Update ();
+        }
+
+
+        public void StartNextStage () {
+            if (_.Stages.Count > 0) {
+                _.Stages.Dequeue ().Spawn ();
+            }
+            else {
+                // вернуться в меню
+            }
         }
 
     }

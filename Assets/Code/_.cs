@@ -10,7 +10,10 @@ namespace Code {
 
         public static Game           Game;
         public static Difficulty     Difficulty = Difficulty.Normal;
-        public static Queue <Entity> Stages; // когда деспавнится старый стейдж, мы спавним сразу новый
+        public static Queue <Entity> Stages     = new Queue <Entity> (new [] {
+            new Stage1Sub1 (),
+            new Stage1Sub1 (),
+        });
         public static Locale         Locale;
 
     }
