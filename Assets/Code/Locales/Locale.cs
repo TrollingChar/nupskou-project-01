@@ -4,6 +4,7 @@ namespace Code.Locales {
 
         // ошибки
         public abstract string SpawnFail   { get; }
+        public abstract string UpdateFail  { get; }
         public abstract string DespawnFail { get; }
 
     }

@@ -16,9 +16,17 @@ namespace Code {
             if (state != EntityState.Initial) {
                 throw new InvalidOperationException (_.Locale.SpawnFail);
             }
+            state     = EntityState.Alive;
             spawnedAt = _.Game.Time;
             OnSpawn ();
-            state = EntityState.Alive;
+        }
+
+
+        public void Update () {
+            if (state != EntityState.Alive) {
+                throw new InvalidOperationException (_.Locale.UpdateFail);
+            }
+            OnUpdate ();
         }
 
 
@@ -26,17 +34,19 @@ namespace Code {
             if (state != EntityState.Alive) {
                 throw new InvalidOperationException (_.Locale.DespawnFail);
             }
-            OnDespawn ();
             state = EntityState.Dead;
+            OnDespawn ();
         }
 
 
-        public int Age => _.Game.Time - spawnedAt;
+        public int  Age   => _.Game.Time - spawnedAt;
+        public bool Alive => state == EntityState.Alive;
 
 
         protected virtual void OnSpawn   () {}
+        protected virtual void OnUpdate  () {}
         protected virtual void OnDespawn () {}
-        
+
     }
 
 }

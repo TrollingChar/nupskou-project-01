@@ -4,40 +4,27 @@ using System.Collections.Generic;
 
 namespace Code.Systems {
 
+    // а может лучше использовать не компоненты а сами сущности
     public class UpdateSystem {
 
-        private List <Component> components = new List <Component> ();
+        private List <Entity> entities = new List <Entity> ();
 
 
         public void Update () {
-            for (int i = 0; i < components.Count; i++) {
-                if (components [i].Alive) components [i].Update ();
+            for (int i = 0; i < entities.Count; i++) {
+                if (entities [i].Alive) entities [i].Update ();
             }
             Clean ();
         }
 
 
-        public void Add (Component c) {
-            components.Add (c);
-            c.Alive = true;
+        public void Add (Entity c) {
+            entities.Add (c);
         }
 
 
         private void Clean () {
-            components.RemoveAll (c => !c.Alive);
-        }
-
-
-        public class Component {
-
-            public bool   Alive;
-            public Action Update;
-
-
-            public Component (Action update) {
-                Update = update;
-            }
-
+            entities.RemoveAll (c => !c.Alive);
         }
 
     }
