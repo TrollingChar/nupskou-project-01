@@ -1,4 +1,7 @@
-﻿using TMPro;
+﻿using System.Collections.Generic;
+using Code.Stages;
+using Code.Systems;
+using TMPro;
 using UnityEngine;
 
 
@@ -10,6 +13,7 @@ namespace Code {
     
 
         private int t;
+        public UpdateSystem UpdateSystem { get; private set; }
 
 
         public int Time {
@@ -22,13 +26,20 @@ namespace Code {
         }
 
 
-        void Awake () {
+        private void Awake () {
+            UpdateSystem = new UpdateSystem ();
             _.Game = this;
+            new Stage1Sub1 ().Spawn ();
+            t = -1;
         }
 
 
-        void Update () {
+        private void Update () {
             Time++;
+            
+            UpdateSystem.Update ();
+            
+            // RenderingSystems.Update ();
         }
 
     }

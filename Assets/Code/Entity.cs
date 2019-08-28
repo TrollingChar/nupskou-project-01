@@ -8,32 +8,34 @@ namespace Code {
 
     public class Entity {
 
-        public EntityState State;
-        public int         SpawnedAt;
+        private EntityState state = EntityState.Initial;
+        private int         spawnedAt;
 
         
         public void Spawn () {
-            if (State != EntityState.Initial) throw new InvalidOperationException ();
-            SpawnedAt = _.Game.Time;
-            AddSprite ();
-            State = EntityState.Alive;
-        }
-
-
-        public void Update () {
-            if (State != EntityState.Alive) throw new InvalidOperationException ();
+            if (state != EntityState.Initial) {
+                throw new InvalidOperationException (_.Locale.SpawnFail);
+            }
+            spawnedAt = _.Game.Time;
+            OnSpawn ();
+            state = EntityState.Alive;
         }
 
 
         public void Despawn () {
-            if (State != EntityState.Alive) throw new InvalidOperationException ();
-            RemoveSprite ();
-            State = EntityState.Dead;
+            if (state != EntityState.Alive) {
+                throw new InvalidOperationException (_.Locale.DespawnFail);
+            }
+            OnDespawn ();
+            state = EntityState.Dead;
         }
-        
 
-        public void AddSprite    () {}
-        public void RemoveSprite () {}
+
+        public int Age => _.Game.Time - spawnedAt;
+
+
+        protected virtual void OnSpawn   () {}
+        protected virtual void OnDespawn () {}
         
     }
 
