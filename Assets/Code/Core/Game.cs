@@ -1,19 +1,19 @@
-﻿using System.Collections.Generic;
-using Code.Stages;
-using Code.Systems;
+﻿using Code.Systems;
 using TMPro;
 using UnityEngine;
+using ParticleSystem = UnityEngine.ParticleSystem;
 
 
-namespace Code {
+namespace Code.Core {
 
     public class Game : MonoBehaviour {
 
-        [SerializeField] private TMP_Text timeText;
-    
+        [SerializeField] private TMP_Text       timeText;
+        [SerializeField] private ParticleSystem particleSystem;
 
-        private int t;
-        public UpdateSystem UpdateSystem { get; private set; }
+        private int                    t;
+        public  UpdateSystem           UpdateSystem   { get; private set; }
+        public  Systems.ParticleSystem ParticleSystem { get; private set; }
 
 
         public int Time {
@@ -27,7 +27,9 @@ namespace Code {
 
 
         private void Awake () {
-            UpdateSystem = new UpdateSystem ();
+            UpdateSystem   = new UpdateSystem ();
+            ParticleSystem = new Systems.ParticleSystem (particleSystem);
+
             _.Game = this;
             StartNextStage ();
             t = -1;

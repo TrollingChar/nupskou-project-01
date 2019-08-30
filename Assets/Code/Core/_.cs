@@ -1,10 +1,10 @@
 using System.Collections.Generic;
 using Code.Locales;
 using Code.Stages;
-using Code.Util;
+using Code.Utils;
 
 
-namespace Code {
+namespace Code.Core {
 
     public static class _ {
 
