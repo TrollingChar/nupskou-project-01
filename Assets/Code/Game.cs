@@ -36,7 +36,7 @@ namespace Code {
 
         private void Update () {
             Time++;
-            UpdateSystem.Update ();
+            UpdateSystem.Work ();
         }
 
 

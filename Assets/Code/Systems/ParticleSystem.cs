@@ -1,4 +1,5 @@
 using UnityEngine;
+using Ups = UnityEngine.ParticleSystem;
 
 
 namespace Code.Systems {
@@ -7,7 +8,16 @@ namespace Code.Systems {
     // меняться будет цвет частицы, размер, положение и т.д.
     public class ParticleSystem : MonoBehaviour {
 
-        [SerializeField] private new UnityEngine.ParticleSystem particleSystem;
+        public delegate bool UpdateParticle (ref Ups.Particle particle); // false если частица удалена
+
+
+        [SerializeField] private Ups unityParticleSystem;
+
+
+        public void Work () {}
+
+
+        public void AddParticle (UpdateParticle handler) {}
 
     }
 

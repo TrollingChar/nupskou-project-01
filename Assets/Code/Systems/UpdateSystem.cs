@@ -10,7 +10,7 @@ namespace Code.Systems {
         private List <Entity> entities = new List <Entity> ();
 
 
-        public void Update () {
+        public void Work () {
             // ReSharper disable once ForCanBeConvertedToForeach
             for (int i = 0; i < entities.Count; i++) {
                 if (entities [i].State != EntityState.Dead) entities [i].Update ();
