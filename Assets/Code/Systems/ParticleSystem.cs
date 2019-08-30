@@ -11,9 +11,9 @@ namespace Code.Systems {
 
         public delegate void UpdateFunction (ref Ups.Particle particle);
 
-        
+
         public sealed class ParticleHandler {
-            
+
             public bool           Alive = true;
             public UpdateFunction Update;
 
@@ -41,19 +41,19 @@ namespace Code.Systems {
             handlers.RemoveAll (h => !h.Alive);
 
             int count = handlers.Count;
-            
+
             // выделить место под частицы если его не хватает
             if (count > particles.Length) {
                 Array.Resize (ref particles, Math.Max (count, 2 * particles.Length));
             }
-            
+
             // выпустить частицы если нужно
             if (count > particleCount) {
                 unityParticleSystem.Emit (count - particleCount);
             }
-            
+
             particleCount = unityParticleSystem.GetParticles (particles);
-            
+
             // обновление частиц
             for (int i = 0; i < count; i++) {
                 handlers [i].Update (ref particles [i]);
@@ -62,7 +62,7 @@ namespace Code.Systems {
             for (int i = count; i < particleCount; i++) {
                 particles [i].remainingLifetime = -1;
             }
-            
+
             unityParticleSystem.SetParticles (particles, particleCount);
             particleCount = count;
         }
