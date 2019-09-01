@@ -15,7 +15,8 @@ namespace Code.Stages {
 
 
         protected override void OnUpdate () {
-            Debug.Log (Age);
+            new Bullet (Vector2.zero,  2 * new Vector2 (Mathf.Cos (Age), Mathf.Sin (Age))).Spawn ();
+            new Bullet (Vector2.zero, -2 * new Vector2 (Mathf.Cos (Age), Mathf.Sin (Age))).Spawn ();
             if (Age == Time (20, 00)) {
                 Despawn ();
                 _.Game.StartNextStage ();

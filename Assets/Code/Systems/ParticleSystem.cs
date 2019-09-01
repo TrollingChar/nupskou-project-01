@@ -68,12 +68,12 @@ namespace Code.Systems {
         }
 
 
-        public void AddParticle (ParticleHandler handler) {
+        public void Add (ParticleHandler handler) {
             handlers.Add (handler);
         }
 
 
-        public ParticleHandler AddParticle (UpdateFunction update) {
+        public ParticleHandler Add (UpdateFunction update) {
             var handler = new ParticleHandler (update);
             handlers.Add (handler);
             return handler;

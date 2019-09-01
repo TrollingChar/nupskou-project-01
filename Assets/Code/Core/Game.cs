@@ -38,7 +38,8 @@ namespace Code.Core {
 
         private void Update () {
             Time++;
-            UpdateSystem.Work ();
+            UpdateSystem  .Work ();
+            ParticleSystem.Work ();
         }
 
 
