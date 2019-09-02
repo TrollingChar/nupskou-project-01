@@ -14,7 +14,7 @@ namespace Code.Core {
         private int                    t;
         public  UpdateSystem           UpdateSystem   { get; private set; }
         public  Systems.ParticleSystem ParticleSystem { get; private set; }
-        public  Player                 player         { get; private set; }
+        public  Player                 Player         { get; private set; }
 
 
         public int Time {
@@ -32,7 +32,7 @@ namespace Code.Core {
             ParticleSystem = new Systems.ParticleSystem (particleSystem);
 
             _.Game = this;
-            (player = new Player ()).Spawn ();
+            (Player = new Player ()).Spawn ();
             StartNextStage ();
             t = -1;
         }
