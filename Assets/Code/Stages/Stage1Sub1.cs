@@ -1,4 +1,5 @@
 using Code.Core;
+using Code.Math;
 using UnityEngine;
 using static Code.Utils.Utils;
 
@@ -15,8 +16,13 @@ namespace Code.Stages {
 
 
         protected override void OnUpdate () {
-            new Bullet (Vector2.zero,  2 * new Vector2 (Mathf.Cos (Age), Mathf.Sin (Age))).Spawn ();
-            new Bullet (Vector2.zero, -2 * new Vector2 (Mathf.Cos (Age), Mathf.Sin (Age))).Spawn ();
+//            var v = new XY (Age * Const.phiAngle);
+            if (Age % 10 == 0)
+            foreach (var v in Danmaku.Ring (XY.Down, 40)) {
+                var w = new XY (v.X * 4, v.Y).Rotated (Age);
+                new Bullet (new XY (0, 100), w * 1.5f).Spawn ();
+            }
+            
             if (Age == Time (20, 00)) {
                 Despawn ();
                 _.Game.StartNextStage ();

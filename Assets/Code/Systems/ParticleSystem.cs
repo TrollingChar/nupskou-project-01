@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using static System.Math;
 using Ups = UnityEngine.ParticleSystem;
 
 
@@ -44,7 +45,7 @@ namespace Code.Systems {
 
             // выделить место под частицы если его не хватает
             if (count > particles.Length) {
-                Array.Resize (ref particles, Math.Max (count, 2 * particles.Length));
+                Array.Resize (ref particles, Max (count, 2 * particles.Length));
             }
 
             // выпустить частицы если нужно
