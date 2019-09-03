@@ -1,12 +1,10 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using Code.Core;
-using Code.Utils;
 using UnityEngine;
 
 
-namespace Code.Math {
+namespace Code {
 
     public static class Danmaku {
 

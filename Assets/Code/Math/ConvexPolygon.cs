@@ -1,4 +1,4 @@
-﻿namespace Code.Math {
+﻿namespace Code {
 
     public class ConvexPolygon {
 

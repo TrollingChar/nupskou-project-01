@@ -1,9 +1,8 @@
-﻿using Code.Math;
-using UnityEngine;
+﻿using UnityEngine;
 using Random = System.Random;
 
 
-namespace Code.Utils {
+namespace Code {
 
     public static class RandomExtension {
 

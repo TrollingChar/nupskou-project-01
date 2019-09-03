@@ -1,4 +1,4 @@
-namespace Code.Locales {
+namespace Code {
 
     public class Ru : Locale {}
 

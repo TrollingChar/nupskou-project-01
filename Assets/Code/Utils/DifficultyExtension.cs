@@ -1,7 +1,7 @@
 ﻿using System;
 
 
-namespace Code.Utils {
+namespace Code {
 
     public static class DifficultyExtension {
 

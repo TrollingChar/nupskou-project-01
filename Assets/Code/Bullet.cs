@@ -1,8 +1,5 @@
-using Code.Core;
-using Code.Math;
 using UnityEngine;
-using ParticleHandler = Code.Systems.ParticleSystem.ParticleHandler;
-using static Code.Utils.Utils;
+using ParticleHandler = Code.ParticleSystem.ParticleHandler;
 
 
 namespace Code {
@@ -21,11 +18,11 @@ namespace Code {
 
         protected override void OnSpawn () {
             _.Game.UpdateSystem.Add (this);
-            particleHandler = _.Game.ParticleSystem.Add (UpdateParticle);
+            particleHandler = _.Game.RoundBulletSystem.Add (UpdateParticle);
         }
 
 
-        private void UpdateParticle (ref ParticleSystem.Particle particle) {
+        private void UpdateParticle (ref UnityEngine.ParticleSystem.Particle particle) {
             particle.position   = (Vector3) (p0 + v * Age);
             particle.startSize  = 20;
             particle.startColor = Color.red;
@@ -33,7 +30,7 @@ namespace Code {
 
 
         protected override void OnUpdate () {
-            if (Age == Time (3, 00)) Despawn ();
+            if (Age == Utils.Time (3, 00)) Despawn ();
         }
 
 

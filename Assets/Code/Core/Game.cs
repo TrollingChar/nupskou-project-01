@@ -1,50 +1,27 @@
-﻿using Code.Systems;
-using TMPro;
-using UnityEngine;
-using ParticleSystem = UnityEngine.ParticleSystem;
+namespace Code {
+
+    public class Game {
+
+        public          int            Time { get; private set; }
+        public readonly UpdateSystem   UpdateSystem;
+        public readonly ParticleSystem RoundBulletSystem;
+        public          Player         Player;
 
 
-namespace Code.Core {
-
-    public class Game : MonoBehaviour {
-
-        [SerializeField] private TMP_Text       timeText;
-        [SerializeField] private ParticleSystem particleSystem;
-
-        private int                    t;
-        public  UpdateSystem           UpdateSystem   { get; private set; }
-        public  Systems.ParticleSystem ParticleSystem { get; private set; }
-        public  Player                 Player         { get; private set; }
-
-
-        public int Time {
-            get { return t; }
-            private set {
-                if (t == value) return;
-                t = value;
-                if (timeText) timeText.text = $"{value / 3600}:{value / 60 % 60:00}:{value % 60:00}"; // m:ss:tt
-            }
+        public Game (UnityEngine.ParticleSystem roundBulletSystem) {
+            UpdateSystem      = new UpdateSystem ();
+            RoundBulletSystem = new ParticleSystem (roundBulletSystem);
         }
 
 
-        private void Awake () {
-            UpdateSystem   = new UpdateSystem ();
-            ParticleSystem = new Systems.ParticleSystem (particleSystem);
-
-            _.Game = this;
-            (Player = new Player ()).Spawn ();
-            StartNextStage ();
-            t = -1;
-        }
-
-
-        private void Update () {
+        public void Update () {
             Time++;
-            UpdateSystem  .Work ();
-            ParticleSystem.Work ();
+            UpdateSystem     .Work ();
+            RoundBulletSystem.Work ();
+            // добавить системы коллизий и т.д.
         }
-
-
+        
+        
         public void StartNextStage () {
             if (_.Stages.Count > 0) {
                 _.Stages.Dequeue ().Spawn ();

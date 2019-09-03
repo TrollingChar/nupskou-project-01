@@ -1,4 +1,4 @@
-namespace Code.Utils {
+namespace Code {
 
     public enum Difficulty { Easy, Normal, Hard, Trolling }
 

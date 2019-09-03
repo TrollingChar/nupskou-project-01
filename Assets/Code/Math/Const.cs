@@ -1,7 +1,7 @@
 using UnityEngine;
 
 
-namespace Code.Math {
+namespace Code {
 
     public class Const {
 

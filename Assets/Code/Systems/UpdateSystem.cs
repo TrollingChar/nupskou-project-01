@@ -2,7 +2,7 @@ using System;
 using System.Collections.Generic;
 
 
-namespace Code.Systems {
+namespace Code {
 
     // а может лучше использовать не компоненты а сами сущности
     public class UpdateSystem {

@@ -1,10 +1,4 @@
-using Code.Core;
-using Code.Math;
-using UnityEngine;
-using static Code.Utils.Utils;
-
-
-namespace Code.Stages {
+namespace Code {
 
     // уровни должны будут идти по цепочке
     // придется в деспавне смотреть какой стейдж следующий в цепочке и спавнить его
@@ -23,7 +17,7 @@ namespace Code.Stages {
                 new Bullet (new XY (0, 100), w * 1.5f).Spawn ();
             }
             
-            if (Age == Time (20, 00)) {
+            if (Age == Utils.Time (20, 00)) {
                 Despawn ();
                 _.Game.StartNextStage ();
             }

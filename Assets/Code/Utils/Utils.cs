@@ -1,4 +1,4 @@
-namespace Code.Utils {
+namespace Code {
 
     // если в твоем коде написано Utils.Utils.Time (...), значит ты делаешь это неправильно.
     // пиши using static в начале файла
