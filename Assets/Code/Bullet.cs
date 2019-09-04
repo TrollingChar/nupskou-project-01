@@ -30,7 +30,7 @@ namespace Code {
 
 
         protected override void OnUpdate () {
-            if (Age == Utils.Time (3, 00)) Despawn ();
+            if (Age == Utils.Time (5, 00)) Despawn ();
         }
 
 

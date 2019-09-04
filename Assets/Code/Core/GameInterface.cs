@@ -16,16 +16,7 @@ namespace Code {
 
 
         private void Awake () {
-            _.Game = new Game (particleSystem);
-            /*
-            UpdateSystem   = new UpdateSystem ();
-            ParticleSystem = new ParticleSystem (particleSystem);
-
-            _.GameInitializer = this;
-            (Player = new Player ()).Spawn ();
-            StartNextStage ();
-            t = -1;
-            */
+            (_.Game = new Game (this, particleSystem)).Start ();
         }
 
 

@@ -37,9 +37,9 @@ namespace Code {
 
         public static XY Zero  => new XY ( 0f,  0f);
         public static XY One   => new XY ( 1f,  1f);
-        public static XY Down  => new XY ( 0f,  1f);
+        public static XY Down  => new XY ( 0f, -1f);
         public static XY Left  => new XY (-1f,  0f);
-        public static XY Up    => new XY ( 0f, -1f);
+        public static XY Up    => new XY ( 0f,  1f);
         public static XY Right => new XY ( 1f,  0f);
         public static XY NaN   => new XY (float.NaN, float.NaN);
 

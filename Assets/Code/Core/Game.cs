@@ -2,15 +2,25 @@ namespace Code {
 
     public class Game {
 
-        public          int            Time { get; private set; }
-        public readonly UpdateSystem   UpdateSystem;
-        public readonly ParticleSystem RoundBulletSystem;
-        public          Player         Player;
+        public           int            Time { get; private set; }
+        public readonly  UpdateSystem   UpdateSystem;
+        public readonly  ParticleSystem RoundBulletSystem;
+        public           Player         Player;
+        private readonly GameInterface  gameInterface;
 
 
-        public Game (UnityEngine.ParticleSystem roundBulletSystem) {
-            UpdateSystem      = new UpdateSystem ();
-            RoundBulletSystem = new ParticleSystem (roundBulletSystem);
+        public Game (GameInterface gameInterface, UnityEngine.ParticleSystem roundBulletSystem) {
+            this.gameInterface = gameInterface;
+            UpdateSystem       = new UpdateSystem ();
+            RoundBulletSystem  = new ParticleSystem (roundBulletSystem);
+        }
+        
+        
+        public void Start () {
+            (Player = new Player ()).Spawn ();
+            StartNextStage ();
+            Time = -1;
+            Update ();
         }
 
 
