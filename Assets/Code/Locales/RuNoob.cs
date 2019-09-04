@@ -2,9 +2,9 @@ namespace Code {
 
     public class RuNoob : Locale {
 
-        public override string Easy     => "Лигка";
-        public override string Normal   => "Нормас";
-        public override string Hard     => "Сложна";
+        public override string Easy     => "Проста";
+        public override string Normal   => "Нармас";
+        public override string Hard     => "Слажна";
         public override string Trolling => "Траллинг";
         
         public override string Lives    => "Жызне";
