@@ -7,7 +7,7 @@ namespace Code {
     public static class _ {
 
         // это подготавливается в главном меню: режим и сложность
-        public static Difficulty     Difficulty = Difficulty.Trolling;
+        public static Difficulty     Difficulty = Difficulty.Easy;
         public static Queue <Entity> Stages     = new Queue <Entity> (new [] { new Stage1Sub1 () });
 
         // это подготавливается в сцене игры
