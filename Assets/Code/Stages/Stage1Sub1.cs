@@ -17,7 +17,7 @@ namespace Code {
             if (Age % delay == 0)
             foreach (var v in Danmaku.Ring (XY.Down, bullets)) {
                 var w = new XY (v.X * 3, v.Y).Rotated (Age / delay * Const.phiAngle / 2);
-                new Bullet (new XY (0, 150), w).Spawn ();
+                new Bullet (new XY (0, 200), w).Spawn ();
             }
             
             if (Age == Utils.Time (20, 00)) {
