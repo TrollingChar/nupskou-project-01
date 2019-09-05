@@ -13,10 +13,11 @@ namespace Code {
 //            var v = new XY (Age * Const.phiAngle);
             int delay   = _.Difficulty.Choose (20, 15, 12, 10);
             int bullets = _.Difficulty.Choose (30, 40, 50, 60);
+            
             if (Age % delay == 0)
             foreach (var v in Danmaku.Ring (XY.Down, bullets)) {
                 var w = new XY (v.X * 3, v.Y).Rotated (Age / delay * Const.phiAngle / 2);
-                new Bullet (new XY (0, 135), w).Spawn ();
+                new Bullet (new XY (0, 150), w).Spawn ();
             }
             
             if (Age == Utils.Time (20, 00)) {

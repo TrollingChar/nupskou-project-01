@@ -24,7 +24,7 @@ namespace Code {
 
         private void UpdateParticle (ref UnityEngine.ParticleSystem.Particle particle) {
             particle.position   = (Vector3) (p0 + v * Age);
-            particle.startSize  = 20;
+            particle.startSize  = 15;
             particle.startColor = Color.red;
         }
 
